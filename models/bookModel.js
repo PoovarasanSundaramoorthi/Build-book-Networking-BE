@@ -1,8 +1,21 @@
 import mongoose from 'mongoose';
 
 const bookSchema = new mongoose.Schema({
-    title: String,
-    isbn: String,
+    title: {
+        type: String,
+        required: true
+    },
+    ISBN: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    author: String,
+    description: String,
+    users: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }]
 });
 
 bookSchema.set('timestamps', true);

@@ -11,6 +11,16 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please fill your name']
   },
+  image: {
+    type: String
+  },
+  access_token: {
+    type: String
+  },
+  books: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Book'
+  }]
 });
 
 userSchema.set('timestamps', true);
