@@ -16,7 +16,7 @@ import globalErrHandler from './controllers/errorController.js';
 // Router imports
 import BookRouter from './routes/bookRoutes.js';
 import UserRouter from './routes/userRoutes.js';
-
+import UserBookRouter from './routes/userBookRouter.js';
 // Express using
 const app = express();
 
@@ -55,6 +55,7 @@ app.use(hpp());
 // Routes
 app.use('/api/v1/books', BookRouter);
 app.use('/api/v1/user', UserRouter);
+app.use('/api/v1/user/books', UserBookRouter);
 
 // handle undefined Routes
 app.use('*', (req, res, next) => {
